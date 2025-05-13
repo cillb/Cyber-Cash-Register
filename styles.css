@@ -1,0 +1,299 @@
+/* FONTS */
+.rajdhani-light {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.rajdhani-regular {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rajdhani-medium {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.rajdhani-semibold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.rajdhani-bold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.orbitron-regular {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.orbitron-medium {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.orbitron-semibold {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.orbitron-bold {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.orbitron-extrabold {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.orbitron-heavy {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* COLOR SCHEME */
+:root {
+    --pink-cyber: #f601c0;
+    --red-cyber: #fd1d75;
+    --teal-cyber: #3ecdef;
+    --blue-cyber: #a9e4ee;
+    --indigo-cyber: #001a65;
+}
+
+/* PAGE STYLING */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Rajdhani";
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    background-color: var(--indigo-cyber);
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-container {
+    height: 800px;
+    width: 600px;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-container::before {
+    content: "X";
+    color: transparent;
+    background-color: var(--pink-cyber);
+    height: 800px;
+    width: 600px;
+    position: absolute;
+    clip-path: polygon(0% 0%, 0% 100%, 2px 100%, 2px 2px, 80% 2px, calc(100% - 2px) 15%, calc(100% - 2px) calc(100% - 2px), 2px calc(100% - 2px), 2px 100%, 100% 100%, 100% 15%, 80% 0%);
+}
+
+.app-container::after {
+    content: "X";
+    color: transparent;
+    background-color: var(--pink-cyber);
+    height: 814px;
+    width: 614px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 80%, calc(100% - 2px) 80%, calc(100% - 2px) calc(100% - 2px), 80% calc(100% - 2px), 80% 100%, 0% 100%, 0% 85%, 2px 85%, 2px 60%, 0% 60%, 0% 15%, 2px 15%, 2px 2px, 20% 2px, 20% 0%);
+}
+
+#total {
+    color: var(--red-cyber);
+    background-color: inherit;
+    font-size: 42px;
+}
+
+#input-wrapper {
+    height: 30px;
+    width: 280px;
+    position: relative
+}
+
+#input-wrapper::after {
+    content: "X";
+    color: transparent;
+    background-color: var(--red-cyber);
+    height: 30px;
+    width: 280px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    clip-path: polygon(0% calc(100% - 10px), 10px 100%, 100% 100%, 100% calc(100% - 15px), calc(100% - 20px) calc(100% - 15px), calc(100% - 30px) calc(100% - 2px), 10px calc(100% - 2px), 2px calc(100% - 10px));
+}
+
+#cash {
+    color: var(--teal-cyber);
+    font-family: "Orbitron";
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    height: inherit;
+    width: inherit;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+
+#cash::placeholder {
+    color: var(--teal-cyber);
+}
+
+#cash:hover {
+    cursor: pointer;
+}
+
+#cash:active {
+    border: 1px solid var(--red-cyber);
+}
+
+#cash:focus {
+    outline: none;
+}
+
+#cash::-webkit-outer-spin-button,
+#cash::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#purchase-btn {
+    color: var(--teal-cyber);
+    background: linear-gradient(135deg, var(--blue-cyber) 0%, transparent 15%, transparent 85%, var(--blue-cyber) 100%);
+    border: none;
+    font-family: "Orbitron";
+    font-size: 20px;
+    font-weight: 600;
+    height: 40px;
+    width: 120px;
+    margin-top: 15px;
+    position: relative;
+    transition: background 0.2s;
+}
+
+#purchase-btn::before {
+    content: "X";
+    color: transparent;
+    background-color: var(--teal-cyber);
+    display: block;
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    bottom: 0;
+    clip-path: polygon(0% 10px, 0% 100%, 25px 100%, 30px calc(100% - 5px), 40px calc(100% - 5px), 45px 100%, calc(100% - 2px) 100%, calc(100% - 2px) calc(100% - 2px), 45px calc(100% - 2px), 40px calc(100% - 7px), 30px calc(100% - 7px), 25px calc(100% - 2px), 2px calc(100% - 2px), 2px 12px, calc(100% - 60px) 12px, calc(100% - 55px) 7px, calc(100% - 2px) 7px, calc(100% - 2px) 100%, 100% 100%, 100% 0%, calc(100% - 50px) 0%, calc(100% - 60px) 10px);
+}
+
+#purchase-btn:hover {
+    cursor: pointer;
+}
+
+#purchase-btn:active {
+    background: var(--teal-cyber);
+}
+
+#cash-in-drawer {
+    color: var(--pink-cyber);
+    background-color: transparent;
+    height: auto;
+    width: 65%;
+    position: relative;
+    border: none;
+    padding: 20px;
+}
+
+#cash-in-drawer::before {
+    content: "X";
+    color: transparent;
+    background-color: var(--pink-cyber);
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 0% calc(100% - 20px), 20px 100%, 20px calc(100% - 2px), 2px calc(100% - 20px), 2px 2px, calc(100% - 40px) 2px, calc(100% - 2px) 40px, calc(100% - 2px) calc(100% - 52px), calc(100% - 52px) calc(100% - 52px), calc(100% - 52px) calc(100% - 2px), 20px calc(100% - 2px), 20px 100%, calc(100% - 50px) 100%, calc(100% - 50px) calc(100% - 50px), 100% calc(100% - 50px), 100% 40px, calc(100% - 40px) 0%);
+}
+
+#cash-in-drawer p {
+    color: var(--pink-cyber);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#change-due {
+    color: var(--teal-cyber);
+    background-color: transparent;
+    border: none;
+    height: auto;
+    width: 65%;
+    padding: 20px;
+    position: relative;
+    border-left: 3px solid var(--blue-cyber);
+    border-right: 3px solid var(--blue-cyber);
+    box-shadow: 0 0 5px var(--blue-cyber);
+}
+
+#change-due::after {
+    content: "X";
+    color: transparent;
+    background-color: var(--teal-cyber);
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 5px 4px;
+    position: absolute;
+    bottom: -5px;
+    left: -4px;
+    clip-path: polygon(0% 0%, 30% 0%, calc(30% + 5px) 5px, calc(70% - 5px) 5px, 70% 0%, 100% 0%, 100% 100%, 70% 100%, calc(70% - 5px) calc(100% - 5px), calc(30% + 5px) calc(100% - 5px), 30% 100%, 0% 100%, 0% calc(100% - 12px), 30% calc(100% - 12px), calc(30% + 5px) calc(100% - 7px), calc(70% - 5px) calc(100% - 7px), 70% calc(100% - 12px), 100% calc(100% - 12px), 100% 12px, 70% 12px, calc(70% - 5px) 7px, calc(30% + 5px) 7px, 30% 12px, 0% 12px);
+}
+
+#change-due p {
+    color: var(--teal-cyber);
+    font-size: 20px;
+    font-weight: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* RESIZING */
