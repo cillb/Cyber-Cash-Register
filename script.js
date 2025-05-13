@@ -17,7 +17,7 @@ const purchaseBtn = document.getElementById("purchase-btn");
 const cashDrawer = document.getElementById("cash-in-drawer");
 const changeDue = document.getElementById("change-due");
 
-totalDue.innerText += `$${price}`;
+totalDue.innerText += ` $${price}`;
 
 const updateCashDrawerUI = (arr) => {
     const changeNameMap = {
@@ -121,6 +121,17 @@ purchaseBtn.addEventListener("click", () => {
         return;
     }
     fundsCheck();
-})
+    cash.value = "";
+});
+
+cash.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+        if(!cashCheck()) {
+            return;
+        }
+        fundsCheck();
+        cash.value = "";
+    }
+});
 
 updateCashDrawerUI(cid);
