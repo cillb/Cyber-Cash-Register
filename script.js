@@ -40,6 +40,7 @@ const updateCashDrawerUI = (arr) => {
 const cashCheck = () => {
     if (Math.round(Number(cash.value) * 100) === price * 100) {
         changeDue.innerHTML = `<p>No change due - customer paid with exact cash</p>`;
+        changeDue.classList.remove("hidden");
         return false;
     } else if (Math.round(Number(cash.value) * 100) < price * 100) {
         return alert("Customer does not have enough money to purchase the item");
@@ -51,6 +52,7 @@ const processChange = (arrChange, arrDrawer, status) => {
     updateCashDrawerUI(arrDrawer);
     changeDue.innerHTML += `<p>Status: ${status}</p>`;
     arrChange.forEach(el => changeDue.innerHTML += `<p>${el[0]}: $${el[1]}</p>`);
+    changeDue.classList.remove("hidden");
 }
 
 
@@ -90,6 +92,7 @@ const calcChange = () => {
 
     if (requiredChange > 0) {
         changeDue.innerHTML = `<p>Status: INSUFFICIENT_FUNDS</p>`;
+        changeDue.classList.remove("hidden");
     } else {
         cid = cidReverse.reverse().map(([coin, amount]) => [coin, amount / 100]);
         processChange(changeBack, cid, "OPEN");
@@ -111,6 +114,7 @@ const fundsCheck = () => {
         processChange(restOfChange, cid, "CLOSED");
     } else if (totalChange > totalDrawerFunds) {
         changeDue.innerHTML = `<p>Status: INSUFFICIENT_FUNDS</p>`;
+        changeDue.classList.remove("hidden");
     } else {
         calcChange();
     }
@@ -118,6 +122,7 @@ const fundsCheck = () => {
 
 purchaseBtn.addEventListener("click", () => {
     if (!cashCheck()) {
+        cash.value = "";
         return;
     }
     fundsCheck();
@@ -127,6 +132,7 @@ purchaseBtn.addEventListener("click", () => {
 cash.addEventListener("keydown", e => {
     if (e.key === "Enter") {
         if(!cashCheck()) {
+            cash.value = "";
             return;
         }
         fundsCheck();
